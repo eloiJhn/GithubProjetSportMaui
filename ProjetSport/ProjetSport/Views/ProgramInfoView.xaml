@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetSport.Views.ProgramInfoView"
+             xmlns:vm="clr-namespace:ProjetSport.ViewModels"
+             Title="ProgramInfoView">
+    <ContentPage.BindingContext>
+        <vm:ProgramInfoViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color">
+            <On Platform="iOS" Value="#D8D8D8" />
+            <On Platform="Android" Value="#D8D8D8" />
+            <On Platform="UWP" Value="#D8D8D8" />
+        </OnPlatform>
+    </ContentPage.BackgroundColor>
+    <VerticalStackLayout>
+        <Label 
+            Text="{Binding Program.Name}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <ScrollView>
+            <CollectionView
+                     ItemTemplate="{StaticResource ExercicesIntoProgram}"
+                    BackgroundColor="#D9D9D9"
+                     ItemsSource="{Binding ListExercice}"
+                    />
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

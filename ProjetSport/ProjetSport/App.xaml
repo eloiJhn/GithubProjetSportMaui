@@ -1,0 +1,89 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ProjetSport"
+             xmlns:view="clr-namespace:ProjetSport.Views"
+             x:Class="ProjetSport.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate x:Key ="Programs">
+                <Border Stroke="Gray" StrokeThickness="4" BackgroundColor="#D9D9D9" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="5,10,5,20">
+                        <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <HorizontalStackLayout Margin="20,10,50,10" HorizontalOptions="Center">
+                            <Label Text="Program : " FontSize="Small" TextColor="#5F5F5F"></Label>
+                            <Label Text="{Binding Name}"
+                           FontSize="Small"
+                           HorizontalOptions="Center"
+                               Grid.Column="0" 
+                           TextColor="#444444"></Label>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Margin="40, 30, 100, 10" HorizontalOptions="Center">
+                            <Label Text="Description :  " FontSize="Small" TextColor="#5F5F5F"></Label>
+                            <Label Text="{Binding ProgramDescription}"
+                               Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           FontSize="Small"
+                           TextColor="#444444"></Label>
+                        </HorizontalStackLayout>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+            <DataTemplate x:Key ="ExercicesIntoProgram">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                        <ColumnDefinition Width="5*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding NameExercice}"
+                           FontSize="Medium"
+                           HorizontalOptions="Center"
+                               Grid.Column="0" ></Label>
+                    <Label Text="{Binding DescriptionExercice}"
+                               Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           FontSize="Medium"></Label>
+                    <Image Source="{Binding Image}"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Grid.Column="2"></Image>
+                </Grid>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+    <Application.MainPage>
+
+        <Shell >
+            <Shell.TitleView>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logo.csv"
+                      HorizontalOptions="Start"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                       />
+                </StackLayout>
+            </Shell.TitleView>
+            <Shell.BackgroundColor>
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="Android" Value="#D9D9D9" />
+                    <On Platform="iOS" Value="#D9D9D9" />
+                    <On Platform="UWP" Value="#D9D9D9" />
+                </OnPlatform>
+            </Shell.BackgroundColor>
+            <TabBar x:Name="PhoneTabs">
+                <Tab Title="Programs" Icon="programlogo.csv">
+                    <ShellContent Title="Intervenant"  ContentTemplate="{DataTemplate view:ProgramView}" />
+                </Tab>
+            </TabBar>
+
+        </Shell>
+    </Application.MainPage>
+</Application>
