@@ -11,7 +11,7 @@ namespace ProjetSport.Services
 {
     public static class ProgramService
     {
-         readonly static string baseURI = "http://192.168.1.10:5033/api/Program";
+         readonly static string baseURI = "http://10.0.0.31:5033/api/Program";
         private static string GetDataFromApi(string url)
         {
             String response = "";

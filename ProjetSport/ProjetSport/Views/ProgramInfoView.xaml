@@ -9,9 +9,9 @@
     </ContentPage.BindingContext>
     <ContentPage.BackgroundColor>
         <OnPlatform x:TypeArguments="Color">
-            <On Platform="iOS" Value="#D8D8D8" />
-            <On Platform="Android" Value="#D8D8D8" />
-            <On Platform="UWP" Value="#D8D8D8" />
+            <On Platform="iOS" Value="#FE9433" />
+            <On Platform="Android" Value="#FE9433" />
+            <On Platform="UWP" Value="#FE9433" />
         </OnPlatform>
     </ContentPage.BackgroundColor>
     <VerticalStackLayout>
@@ -23,7 +23,7 @@
         <ScrollView>
             <CollectionView
                      ItemTemplate="{StaticResource ExercicesIntoProgram}"
-                    BackgroundColor="#D9D9D9"
+                    BackgroundColor="#FE9433"
                      ItemsSource="{Binding ListExercice}"
                     />
         </ScrollView>
