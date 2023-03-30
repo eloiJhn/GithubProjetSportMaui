@@ -1,5 +1,6 @@
 ﻿using ProjetSport.Models;
 using ProjetSport.Services;
+using ProjetSport.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -8,11 +9,14 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace ProjetSport.ViewModels
 {
     public class ProgramInfoViewModel : INotifyPropertyChanged
     {
+        public ICommand ExoCommand { get; set; }
+
         private ProgramModel _program;
 
         public ProgramModel Program
@@ -36,9 +40,23 @@ namespace ProjetSport.ViewModels
             }
         }
 
+        private ProgramToExerciceModel _selectedExercice;
+
+        public ProgramToExerciceModel SelectedExercice
+        {
+            get { return _selectedExercice; }
+            set { _selectedExercice = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public ProgramInfoViewModel()
         {
+            ExoCommand = new Command(execute: () =>
+            {
+                App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = new ExerciceViewModel { Exercice = SelectedExercice } });
+            });
         }
     }
 }
