@@ -27,9 +27,7 @@ namespace ProjetSport.Services
         {
             try
             {
-                HttpClient client = new HttpClient();
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", Convert.ToBase64String(Encoding.ASCII.GetBytes($"{identifiant}:{password}")));
-                var json = GetDataFromApi(baseURI + "/verif/");
+                var json = GetDataFromApi(baseURI + "/verif?identifiant=" + identifiant + "&password=" + password);
                 return JsonConvert.DeserializeObject<bool>(json);
             }
             catch (Exception e)

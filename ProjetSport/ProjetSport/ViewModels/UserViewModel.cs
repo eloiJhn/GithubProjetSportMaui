@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetSport.Views;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -45,7 +46,7 @@ namespace ProjetSport.ViewModels
 
                 if (isOk == true)
                 {
-                    App.Current.MainPage = new AppShell();
+                    App.Current.MainPage = new ProgramView();
                 }
                 else
                 {
