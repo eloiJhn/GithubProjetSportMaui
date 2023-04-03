@@ -64,8 +64,6 @@ namespace ProjetSport.ViewModels
             connectionCommand = new Command(() => {
                 bool isOk = Services.UserService.VerifConnection(_identifiant, _password);
 
-
-
                 if (isOk == true)
                 {
                     App.Current.MainPage = new ProgramView();

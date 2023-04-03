@@ -75,12 +75,11 @@ namespace ProjetSport.Services
                         if ((int)status == 200)
                         {
                             await App.Current.MainPage.DisplayAlert(null, "Bien vu", "X");
+                            await App.Current.MainPage.Navigation.PopAsync();
                         }
                         else
                         {
-                            await App.Current.MainPage.DisplayAlert(
-                                                            "Un Problème à eu lieu lors de l'envoie", " Error : " + ((int)status).ToString() + " " + status.ToString(),
-                                                            "X");
+                            await App.Current.MainPage.DisplayAlert("Un Problème à eu lieu lors de l'envoie", " Error : " + ((int)status).ToString() + " " + status.ToString(),"X");
                         }
                     }
                 }
