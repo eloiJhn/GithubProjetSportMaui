@@ -25,6 +25,9 @@
                      ItemTemplate="{StaticResource ExercicesIntoProgram}"
                     BackgroundColor="#FE9433"
                      ItemsSource="{Binding ListExercice}"
+                SelectedItem="{Binding SelectedExercice}"
+                SelectionMode="Single"
+                SelectionChangedCommand="{Binding ExoCommand}"
                     />
         </ScrollView>
     </VerticalStackLayout>

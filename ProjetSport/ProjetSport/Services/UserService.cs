@@ -1,17 +1,19 @@
 ﻿using Newtonsoft.Json;
-using ProjetSport.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjetSport.Services
 {
-    public static class ProgramService
+    public class UserService
     {
-         readonly static string baseURI = "http://resterenforme20230125215043.azurewebsites.net/api/Program";
+        readonly static string baseURI = "http://resterenforme20230125215043.azurewebsites.net/api/User";
+
+
         private static string GetDataFromApi(string url)
         {
             String response = "";
@@ -20,25 +22,13 @@ namespace ProjetSport.Services
             response = client.GetStringAsync(client.BaseAddress).Result;
             return response;
         }
-        public static ObservableCollection<ProgramModel> GetPrograms()
-        {
-            try
-            {
-                var json = GetDataFromApi(baseURI);
-                return JsonConvert.DeserializeObject<ObservableCollection<ProgramModel>>(json);
 
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
-        }
-        public static ObservableCollection<ProgramToExerciceModel> GetExercicesIntoProgram(int id)
+        public static bool VerifConnection(string identifiant, string password)
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/ExerciceProgram/" + id);
-                return JsonConvert.DeserializeObject<ObservableCollection<ProgramToExerciceModel>>(json);
+                var json = GetDataFromApi(baseURI + "/verif?identifiant=" + identifiant + "&password=" + password);
+                return JsonConvert.DeserializeObject<bool>(json);
             }
             catch (Exception e)
             {
@@ -47,5 +37,6 @@ namespace ProjetSport.Services
                 //return list;
             }
         }
+
     }
 }
