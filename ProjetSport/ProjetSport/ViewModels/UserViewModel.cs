@@ -36,7 +36,9 @@ namespace ProjetSport.ViewModels
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set { _firstName = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _lastName;
@@ -44,7 +46,9 @@ namespace ProjetSport.ViewModels
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; }
+            set { _lastName = value;
+                OnPropertyChanged();
+            }
         }
 
         private string _password;
@@ -57,26 +61,38 @@ namespace ProjetSport.ViewModels
             }
         }
 
-
-
         public UserViewModel()
         {
             connectionCommand = new Command(() => {
-                bool isOk = Services.UserService.VerifConnection(_identifiant, _password);
-
-                if (isOk == true)
+                if (_identifiant is null || _password is null)
                 {
-                    App.Current.MainPage = new ProgramView();
+                    App.Current.MainPage.DisplayAlert("Erreur", "Veuillez remplir les 2 champs", "X");
                 }
                 else
                 {
-                    App.Current.MainPage.DisplayAlert("Erreur", "Mauvais Login", "X");
+                    bool isOk = Services.UserService.VerifConnection(_identifiant, _password);
+
+                    if (isOk == true)
+                    {
+                        App.Current.MainPage = new ProgramView();
+                    }
+                    else
+                    {
+                        App.Current.MainPage.DisplayAlert("Erreur", "Mauvais Login", "X");
+                    }
                 }
             });
 
             authentCommand = new Command(() =>
             {
-                Services.UserService.PostEleveAuth(_firstName, _lastName, _password, _identifiant);
+                if (_firstName is null || _lastName is null || _password is null || _identifiant is null)
+                {
+                    App.Current.MainPage.DisplayAlert("Erreur", "Remplir l'ensemble des critères", "X");
+                }
+                else
+                {
+                    Services.UserService.PostEleveAuth(_firstName, _lastName, _password, _identifiant);
+                }
             });
         }
     }
