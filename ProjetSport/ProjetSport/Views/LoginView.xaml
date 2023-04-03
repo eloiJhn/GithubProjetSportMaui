@@ -9,10 +9,10 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout>
         <Label Text="Identifiant : "></Label>
-        <Entry Placeholder="Identifiant" Text="{Binding Identifiant}"/>
+        <Entry Placeholder="Identifiant" Text="{Binding Identifiant}" ClearButtonVisibility="WhileEditing"/>
 
         <Label Text="Password : "></Label>
-        <Entry Placeholder="Password" Text="{Binding Password}"/>
+        <Entry Placeholder="Password" Text="{Binding Password}" IsPassword="True" ClearButtonVisibility="WhileEditing"/>
 
         <Button Text="Login" Command="{Binding connectionCommand}"></Button>
     </VerticalStackLayout>

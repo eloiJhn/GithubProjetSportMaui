@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using ProjetSport.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,7 +12,7 @@ namespace ProjetSport.Services
 {
     public class UserService
     {
-        readonly static string baseURI = "http://resterenforme20230125215043.azurewebsites.net/api/User";
+        readonly static string baseURI = "https://resterenforme20230125215043.azurewebsites.net/api/User";
 
 
         private static string GetDataFromApi(string url)
@@ -37,6 +38,44 @@ namespace ProjetSport.Services
                 //return list;
             }
         }
+        public async static void PostEleveAuth(string firstName, string lastName, string password, string identifiant)
+        {
+            var eleveAuth = new UserModel
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Password = password,
+                Identifiant = identifiant
+            };
+            var json = JsonConvert.SerializeObject(eleveAuth);
+            try
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    using (HttpResponseMessage response = await httpClient.PostAsync((baseURI), content))
+                    {
+                        var status = response.StatusCode;
 
+                        if ((int)status == 200)
+                        {
+                            await App.Current.MainPage.DisplayAlert(null, "Bien vu", "X");
+                        }
+                        else
+                        {
+                            await App.Current.MainPage.DisplayAlert(
+                                                            "Un Problème à eu lieu lors de l'envoie", " Error : " + ((int)status).ToString() + " " + status.ToString(),
+                                                            "X");
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                await App.Current.MainPage.DisplayAlert("Un Problème à eu lieu lors de l'envoie", "L'API ne répond pas", "X");
+            }
+
+        }
     }
 }

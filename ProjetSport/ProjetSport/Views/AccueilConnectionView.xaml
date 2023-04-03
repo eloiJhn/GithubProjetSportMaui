@@ -5,4 +5,5 @@
             xmlns:vm="clr-namespace:ProjetSport.Views"
              Title="AccueilConnectionView">
     <vm:LoginView></vm:LoginView>
+    <vm:AuthentView></vm:AuthentView>
 </TabbedPage>
