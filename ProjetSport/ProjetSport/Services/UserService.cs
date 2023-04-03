@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,11 +24,24 @@ namespace ProjetSport.Services
             return response;
         }
 
+        public static byte[] HashPassword(string password)
+        {
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+            return SHA256.HashData(passwordBytes);
+        }
+
+
         public static bool VerifConnection(string identifiant, string password)
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/verif?identifiant=" + identifiant + "&password=" + password);
+                // Hacher le mot de passe avant de l'envoyer à l'API
+                byte[] hashedPasswordBytes = HashPassword(password);
+                string hashedPassword = Convert.ToHexString(hashedPasswordBytes);
+
+
+                var json = GetDataFromApi (baseURI + "/verif?identifiant=" + identifiant + "&password=" + hashedPassword);
+
                 return JsonConvert.DeserializeObject<bool>(json);
             }
             catch (Exception e)

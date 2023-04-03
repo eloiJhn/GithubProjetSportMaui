@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -33,16 +34,19 @@ namespace ProjetSport.ViewModels
         public string Password
         {
             get { return _password; }
-            set { _password = value;
+            set{ _password = value;
                 OnPropertyChanged();
             }
         }
+
 
 
         public UserViewModel()
         {
             connectionCommand = new Command(() => {
                 bool isOk = Services.UserService.VerifConnection(_identifiant, _password);
+
+
 
                 if (isOk == true)
                 {
