@@ -52,6 +52,22 @@ namespace ProjetSport.Services
                 //return list;
             }
         }
+
+        public static int GetStudentId(string identifiant)
+        {
+            try
+            {
+                var json = GetDataFromApi(baseURI + "/" + identifiant);
+                return JsonConvert.DeserializeObject<int>(json);
+            }
+            catch (Exception e)
+            {
+                //var list = new ObservableCollection<ProgramToExerciceModel>();
+                throw e;
+                //return list;
+            }
+        }   
+
         public async static void PostEleveAuth(string firstName, string lastName, string password, string identifiant)
         {
             var eleveAuth = new UserModel

@@ -11,7 +11,7 @@
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate x:Key ="Programs">
-                <Border Stroke="#5F391F" StrokeThickness="4" BackgroundColor="#FF9534" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="5,10,5,20">
+                <Border Stroke="#000000" StrokeThickness="3" BackgroundColor="#F2EED5" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="5,10,5,20">
                         <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
@@ -37,7 +37,7 @@
                 </Border>
             </DataTemplate>
             <DataTemplate x:Key="ExercicesIntoProgram">
-                <Border Stroke="#5F391F" StrokeThickness="4" BackgroundColor="#FF9534" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="0,10,5,20">
+                <Border Stroke="#000000" StrokeThickness="3" BackgroundColor="#F2EED5" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="0,10,5,20">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
@@ -87,9 +87,9 @@
             </Shell.TitleView>
             <Shell.BackgroundColor>
                 <OnPlatform x:TypeArguments="Color">
-                    <On Platform="Android" Value="#FE9433" />
-                    <On Platform="iOS" Value="#FE9433" />
-                    <On Platform="UWP" Value="#FE9433" />
+                    <On Platform="Android" Value="#FEFAE2" />
+                    <On Platform="iOS" Value="#FEFAE2" />
+                    <On Platform="UWP" Value="#FEFAE2" />
                 </OnPlatform>
             </Shell.BackgroundColor>
             <TabBar x:Name="PhoneTabs">

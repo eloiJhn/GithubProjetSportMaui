@@ -9,9 +9,9 @@
     </ContentPage.BindingContext>
     <ContentPage.BackgroundColor>
         <OnPlatform x:TypeArguments="Color">
-            <On Platform="iOS" Value="#FE9433" />
-            <On Platform="Android" Value="#FE9433" />
-            <On Platform="UWP" Value="#FE9433" />
+            <On Platform="iOS" Value="#FEFAE2" />
+            <On Platform="Android" Value="#FEFAE2" />
+            <On Platform="UWP" Value="#FEFAE2" />
         </OnPlatform>
     </ContentPage.BackgroundColor>
     <ScrollView>
@@ -26,7 +26,7 @@
                 />
             <CollectionView WidthRequest="350"
                      ItemTemplate="{StaticResource Programs}"
-                    BackgroundColor="#FE9433"
+                    BackgroundColor="#FEFAE2"
                      ItemsSource="{Binding ListPrograms}"
                      SelectionMode="Single"
                      SelectedItem="{Binding SelectedProgram}"

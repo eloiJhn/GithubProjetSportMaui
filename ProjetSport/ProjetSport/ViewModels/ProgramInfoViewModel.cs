@@ -17,6 +17,8 @@ namespace ProjetSport.ViewModels
     {
         public ICommand ExoCommand { get; set; }
 
+        public ICommand PlayCommand { get; set; }
+
         private ProgramModel _program;
 
         public ProgramModel Program
@@ -50,12 +52,15 @@ namespace ProjetSport.ViewModels
             }
         }
 
-
         public ProgramInfoViewModel()
         {
             ExoCommand = new Command(execute: () =>
             {
                 App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = new ExerciceViewModel { Exercice = SelectedExercice } });
+            });
+
+            PlayCommand = new Command(execute: () => { 
+            App.Current.MainPage.DisplayAlert("En Cours", "Soon", "Fermer");
             });
         }
     }

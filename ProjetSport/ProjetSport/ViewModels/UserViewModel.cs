@@ -61,20 +61,27 @@ namespace ProjetSport.ViewModels
             }
         }
 
+        public static byte[] HashPassword(string password)
+        {
+            byte[] passwordBytes = Encoding.UTF8.GetBytes(password);
+            return SHA256.HashData(passwordBytes);
+        }
+
         public UserViewModel()
         {
-            connectionCommand = new Command(() => {
+            connectionCommand = new Command(() =>
+            {
                 if (_identifiant is null || _password is null)
                 {
                     App.Current.MainPage.DisplayAlert("Erreur", "Veuillez remplir les 2 champs", "X");
                 }
                 else
                 {
-                    bool isOk = Services.UserService.VerifConnection(_identifiant, _password);
-
-                    if (isOk == true)
+                    if (Services.UserService.VerifConnection(_identifiant, _password))
                     {
-                        App.Current.MainPage = new ProgramView();
+                        int userId = Services.UserService.GetStudentId(_identifiant);
+                        
+                        App.Current.MainPage = new AppShell(userId);
                     }
                     else
                     {
