@@ -33,5 +33,6 @@
                      SelectionChangedCommand="{Binding NavigateTo}"
                     />
         </VerticalStackLayout>
+        
     </ScrollView>
 </ContentPage>

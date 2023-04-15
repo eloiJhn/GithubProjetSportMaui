@@ -15,7 +15,7 @@
                       HorizontalOptions="Start"
                            HeightRequest="50"
                            WidthRequest="50"
-                         Command="{Binding NavigateToProfil}"
+                         Command="{Binding navigateToProfil}"
                        />
             <ImageButton Source="profil.png"
                          HorizontalOptions="End"

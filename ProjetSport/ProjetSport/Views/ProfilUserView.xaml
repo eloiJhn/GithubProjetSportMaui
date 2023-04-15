@@ -7,12 +7,25 @@
     <ContentPage.BindingContext>
         <vm:UserInfoViewModel></vm:UserInfoViewModel>
     </ContentPage.BindingContext>
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color">
+            <On Platform="iOS" Value="#FEFAE2" />
+            <On Platform="Android" Value="#FEFAE2" />
+            <On Platform="UWP" Value="#FEFAE2" />
+        </OnPlatform>
+    </ContentPage.BackgroundColor>
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
         <Label Text="{Binding Identifiant}"></Label>
+        <Label Text="{Binding User.FirstName}"></Label>
+        <Label Text="{Binding User.LastName}"></Label>
+        <Label Text="{Binding User.Identifiant}"></Label>
+        <Label Text="{Binding User.CreationDate}"></Label>
+        <Label Text="{Binding User.ImageUser}"></Label>
+        <CollectionView WidthRequest="350"
+                     ItemTemplate="{StaticResource Activite}"
+                    BackgroundColor="#FEFAE2"
+                     ItemsSource="{Binding Historique}"
+                     SelectionMode="Single"
+                    />
     </VerticalStackLayout>
 </ContentPage>
