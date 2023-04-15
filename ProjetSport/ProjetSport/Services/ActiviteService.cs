@@ -26,7 +26,7 @@ namespace ProjetSport.Services
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/GetActivitesByUser/" + id);
+                var json = GetDataFromApi(baseURI + "/GetActivitesProgramByUser/" + id);
                 return JsonConvert.DeserializeObject<List<ActiviteModel>>(json);
             }
             catch (Exception e)

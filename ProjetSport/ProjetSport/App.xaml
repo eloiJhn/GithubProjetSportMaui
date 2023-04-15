@@ -41,19 +41,10 @@
                 <Border Stroke="#000000" StrokeThickness="3" BackgroundColor="#F2EED5" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="0,10,5,20">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
-                            <ColumnDefinition Width="3*"></ColumnDefinition>
-                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <HorizontalStackLayout Margin="20,10,10,33">
-                            <Label Text="{Binding NameExercice}"
-                   FontSize="Small"
-                   HorizontalOptions="Center"
-                   Grid.Column="0"
-                               TextColor="#100905"
-                    ></Label>
-                        </HorizontalStackLayout>
-                        <HorizontalStackLayout Margin="40,50,10,10">
+                        <HorizontalStackLayout Margin="50,5,0,0">
                             <Label Text="{Binding Name}"
                    Grid.Column="1"
                    HorizontalTextAlignment="Center"
@@ -62,8 +53,8 @@
                                TextColor="#100905"
                     ></Label>
                         </HorizontalStackLayout>
-                        <HorizontalStackLayout Margin="300,5,0,10">
-                            <Label Text="{Binding Date}"
+                        <HorizontalStackLayout Margin="240,15,0,0">
+                            <Label Text="{Binding Date, StringFormat='{0:dd/MM/yyyy}'}"
                    Grid.Column="2"
                    HorizontalTextAlignment="Center"
                    FontSize="Small"
@@ -73,7 +64,6 @@
                         </HorizontalStackLayout>
                     </Grid>
                 </Border>
-
             </DataTemplate>
             <DataTemplate x:Key="ExercicesIntoProgram">
                 <Border Stroke="#000000" StrokeThickness="3" BackgroundColor="#F2EED5" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="0,10,5,20">
