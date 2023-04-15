@@ -22,12 +22,12 @@
                 BackgroundColor="#DFDBC6" Margin="30,20,30,20">
         <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
                 <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="10">
-            <Label Text="Nom : " FontSize="Medium"></Label>
-            <Entry Placeholder="Nom" Text="{Binding FirstName}" FontSize="Medium" ClearButtonVisibility="WhileEditing"></Entry>
+            <Label Text="Prénom : " FontSize="Medium"></Label>
+            <Entry Placeholder="Prénom" Text="{Binding FirstName}" FontSize="Medium" ClearButtonVisibility="WhileEditing"></Entry>
         </HorizontalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="10">
-            <Label Text="Prénom : " FontSize="Medium"></Label>
-            <Entry Placeholder="Prénom" Text="{Binding LastName}" FontSize="Medium" ClearButtonVisibility="WhileEditing"></Entry>
+            <Label Text="Nom : " FontSize="Medium"></Label>
+            <Entry Placeholder="Nom" Text="{Binding LastName}" FontSize="Medium" ClearButtonVisibility="WhileEditing"></Entry>
         </HorizontalStackLayout>
                 <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Center" Margin="10">
             <Label Text="Identifiant : " FontSize="Medium"></Label>

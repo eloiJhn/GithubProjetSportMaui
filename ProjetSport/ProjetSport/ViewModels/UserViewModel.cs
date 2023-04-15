@@ -107,7 +107,7 @@ namespace ProjetSport.ViewModels
             navigateToProfil = new Command(() =>
             {
                 int id = 17;
-                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = 17,  User = Services.UserService.GetStudent(id), Historique = Services.ActiviteService.GetActivities(id)}});
+                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = 17,  User = Services.UserService.GetStudent(id), Historique = Services.ActiviteService.GetActivitiesPrograms(id)}});
             });
         }
     }
