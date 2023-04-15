@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetSport.Views.ExerciceActivitiesView"
+             xmlns:vm="clr-namespace:ProjetSport.ViewModels"
+             Title="ExerciceActivitiesView">
+    <ContentPage.BindingContext>
+        <vm:ActiviteExerciceViewModel></vm:ActiviteExerciceViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.BackgroundColor>
+        <OnPlatform x:TypeArguments="Color">
+            <On Platform="iOS" Value="#FEFAE2" />
+            <On Platform="Android" Value="#FEFAE2" />
+            <On Platform="UWP" Value="#FEFAE2" />
+        </OnPlatform>
+    </ContentPage.BackgroundColor>
+    <VerticalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,20,0,20">
+            <Label Text="Vous avez effectué : "></Label>
+            <Label Text="{Binding Avancee}" FontAttributes="Bold"></Label>
+            <Label Text="%" FontAttributes="Bold"></Label>
+            <Label Text=" du programme selectionné"></Label>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Border Stroke="#000000"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 50,50,50,50"
+                BackgroundColor="#DFDBC6"
+                HorizontalOptions="Center">
+                <Button Text="Afficher les exercices" Clicked="Button_Clicked" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
+            </Border>
+            <Border Stroke="#000000"
+                StrokeThickness="5"
+                StrokeShape="RoundRectangle 50,50,50,50"
+                BackgroundColor="#DFDBC6"
+                HorizontalOptions="Center">
+                <Button Text="Réduire" Clicked="Button_Clicked_1" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
+            </Border>
+        </HorizontalStackLayout>
+        <CollectionView WidthRequest="350"
+                        x:Name="CollectionView"
+                        IsVisible="true"
+                     ItemTemplate="{StaticResource Exercices}"
+                     BackgroundColor="#FEFAE2"
+                     ItemsSource="{Binding SelectedProgramActivity}"
+                    />
+    </VerticalStackLayout>
+</ContentPage>

@@ -65,7 +65,9 @@
                      ItemTemplate="{StaticResource Activite}"
                      BackgroundColor="#FEFAE2"
                      ItemsSource="{Binding Historique}"
+                     SelectedItem="{Binding SelectedProgramActivity}"
                      SelectionMode="Single"
+                     SelectionChangedCommand="{Binding HistoriqueExerciceCommand}"
                     />
     </VerticalStackLayout>
 </ContentPage>

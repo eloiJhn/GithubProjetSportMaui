@@ -22,7 +22,7 @@ namespace ProjetSport.Services
             return response;
         }
 
-        public static List<ActiviteModel>? GetActivities(int id)
+        public static List<ActiviteModel>? GetActivitiesPrograms(int id)
         {
             try
             {
@@ -34,6 +34,34 @@ namespace ProjetSport.Services
                 //var list = new ObservableCollection<ProgramToExerciceModel>();
                 throw e;
                 //return list;
+            }
+        }
+
+        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName)
+        {
+            try
+            {
+                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName);
+                return JsonConvert.DeserializeObject<List<ActiviteModel>>(json);
+            }
+            catch (Exception e)
+            {
+                //var list = new ObservableCollection<ProgramToExerciceModel>();
+                throw e;
+                //return list;
+            }
+        }
+
+        public static int AvanceProgram(int id, string programName)
+        {
+            try
+            {
+                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName);
+                return JsonConvert.DeserializeObject<int>(json);
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
         }
 
