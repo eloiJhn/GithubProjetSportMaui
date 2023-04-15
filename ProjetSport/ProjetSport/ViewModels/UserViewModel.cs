@@ -21,6 +21,8 @@ namespace ProjetSport.ViewModels
         public ICommand connectionCommand { get; set; }
         public ICommand authentCommand { get; set; }
 
+        public ICommand navigateToProfil { get; set; }
+
         private string _identifiant;
 
         public string Identifiant
@@ -100,6 +102,12 @@ namespace ProjetSport.ViewModels
                 {
                     Services.UserService.PostEleveAuth(_firstName, _lastName, _password, _identifiant);
                 }
+            });
+
+            navigateToProfil = new Command(() =>
+            {
+                int userId = Services.UserService.GetStudentId(_identifiant);
+                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = userId }});
             });
         }
     }
