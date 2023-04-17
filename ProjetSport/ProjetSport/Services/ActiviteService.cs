@@ -2,6 +2,7 @@
 using ProjetSport.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,11 +38,12 @@ namespace ProjetSport.Services
             }
         }
 
-        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName)
+        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName, DateTime date)
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName);
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName + "/" + formattedDate);
                 return JsonConvert.DeserializeObject<List<ActiviteModel>>(json);
             }
             catch (Exception e)
@@ -52,11 +54,12 @@ namespace ProjetSport.Services
             }
         }
 
-        public static int AvanceProgram(int id, string programName)
+        public static int AvanceProgram(int id, string programName, DateTime date)
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName);
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName + "/" + formattedDate);
                 return JsonConvert.DeserializeObject<int>(json);
             }
             catch(Exception e)

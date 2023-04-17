@@ -5,10 +5,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:v="clr-namespace:ProjetSport.Views"
     xmlns:vm="clr-namespace:ProjetSport.ViewModels"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Disabled"
+    Shell.ForegroundColor="Black"
+    >
     <Shell.BindingContext>
         <vm:UserViewModel></vm:UserViewModel>
     </Shell.BindingContext>
+    
     <Shell.TitleView>
         <StackLayout HorizontalOptions="Start">
             <ImageButton Source="logo.csv"
@@ -16,14 +19,7 @@
                            HeightRequest="50"
                            WidthRequest="50"
                          Command="{Binding navigateToProfil}"
-                       />
-            <ImageButton Source="profil.png"
-                         HorizontalOptions="End"
-                         HeightRequest="50"
-                         WidthRequest="50"
-                         Command="{Binding NavigateToProfil}"
-                   >
-            </ImageButton>
+                         />
         </StackLayout>
     </Shell.TitleView>
     <Shell.BackgroundColor>
