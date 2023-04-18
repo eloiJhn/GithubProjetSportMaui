@@ -68,5 +68,33 @@ namespace ProjetSport.Services
             }
         }
 
+        public static int CaloriePerdu(int id, string programName, DateTime date)
+        {
+            try
+            {
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetCaloriePerduPerUser/" + id + "/" + programName + "/" + formattedDate);
+                return JsonConvert.DeserializeObject<int>(json);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public static int CalorieAPerdre(int id, string programName, DateTime date)
+        {
+            try
+            {
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetCalorieAPerdrePerUser/" + id + "/" + programName + "/" + formattedDate);
+                return JsonConvert.DeserializeObject<int>(json);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
     }
 }
