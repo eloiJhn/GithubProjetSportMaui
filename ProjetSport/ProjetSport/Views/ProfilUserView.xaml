@@ -43,7 +43,7 @@
                    ></Image>
             </Border>
         </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
+        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,15,0,10">
             <Border Stroke="#000000"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 50,50,50,50"

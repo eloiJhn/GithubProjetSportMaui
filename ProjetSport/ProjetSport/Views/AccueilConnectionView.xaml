@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetSport.Views.AccueilConnectionView"
             xmlns:vm="clr-namespace:ProjetSport.Views"
-             Title="AccueilConnectionView">
+            Title="AccueilConnectionView"
+            BarBackgroundColor="#FEFAE2"
+            BarTextColor="Black">
     <vm:LoginView></vm:LoginView>
     <vm:AuthentView></vm:AuthentView>
 </TabbedPage>
