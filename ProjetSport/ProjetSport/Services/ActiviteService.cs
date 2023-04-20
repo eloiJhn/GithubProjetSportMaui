@@ -65,5 +65,26 @@ namespace ProjetSport.Services
             }
         }
 
+        public static async Task<bool> AddActivityAsync(int userId, int idProgram)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                var content = new FormUrlEncodedContent(new[]
+                {
+            new KeyValuePair<string, string>("UserId", userId.ToString()),
+            new KeyValuePair<string, string>("IdProgram", idProgram.ToString()),
+        });
+
+                var response = await client.PostAsync(baseURI, content);
+                return response.IsSuccessStatusCode;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
     }
 }

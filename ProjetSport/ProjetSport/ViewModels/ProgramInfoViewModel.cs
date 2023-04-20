@@ -59,9 +59,41 @@ namespace ProjetSport.ViewModels
                 App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = new ExerciceViewModel { Exercice = SelectedExercice } });
             });
 
-            PlayCommand = new Command(execute: () => { 
-            App.Current.MainPage.DisplayAlert("En Cours", "Soon", "Fermer");
-            });
+            PlayCommand = new Command(execute: async () => await StartProgramAsync());
+        }
+
+            private async Task StartProgramAsync()
+        {
+            // Récupérer l'idProgram
+            int idProgram = Program.Id;
+
+            // Ajouter l'activité et récupérer le premier exercice
+            ProgramToExerciceModel firstExercise = ListExercice.FirstOrDefault();
+            if (firstExercise != null)
+            {
+                await ActiviteService.AddActivityAsync(17, idProgram); // Remplacez "1" par l'UserId réel
+
+                // Naviguer vers la première vue d'exercice avec le timer et le bouton pour terminer l'exercice
+                var exerciseViewModel = new ExerciceViewModel
+                {
+                    Exercice = firstExercise,
+                    AllExercises = ListExercice,
+                    CurrentExerciseIndex = 0,
+                    IsNextButtonVisible = true
+                };
+                //exerciseViewModel.StartTimer(); // Ajoutez cet appel pour démarrer le timer pour le premier exercice
+
+
+
+
+                // Naviguer vers la première vue d'exercice avec le timer et le bouton pour terminer l'exercice
+                await App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = exerciseViewModel });
+            }
+            else
+            {
+                // Gérer l'absence d'exercices dans la liste
+                await App.Current.MainPage.DisplayAlert("Erreur", "Aucun exercice trouvé pour ce programme.", "OK");
+            }
         }
     }
 }

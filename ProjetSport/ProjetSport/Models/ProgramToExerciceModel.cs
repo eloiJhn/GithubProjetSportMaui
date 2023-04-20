@@ -13,6 +13,8 @@ namespace ProjetSport.Models
         public string DescriptionExercice { get; set; }
         public string? Image { get; set; }
         public string NameProgram { get; set; }
+        public TimeSpan TimeExercice { get; set; }
         public string ProgramDescription { get; set; }
+
     }
 }

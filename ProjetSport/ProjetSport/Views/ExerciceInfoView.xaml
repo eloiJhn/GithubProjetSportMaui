@@ -39,5 +39,22 @@
                WidthRequest="250"
                HeightRequest="250"
                />
+
+        <Button Text="Exercice suivant"
+        Command="{Binding NextExerciseCommand}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" 
+        IsVisible="{Binding IsNextButtonVisible}" />
+
+        <Label Text="{Binding RemainingTime, StringFormat='{0:mm\\:ss}'}"
+       HorizontalOptions="Center"
+       VerticalOptions="Center"
+       FontSize="Medium" />
+
+
+
+
     </VerticalStackLayout>
+
+   
 </ContentPage>
