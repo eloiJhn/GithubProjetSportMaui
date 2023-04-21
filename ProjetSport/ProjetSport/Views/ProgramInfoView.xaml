@@ -18,8 +18,17 @@
         <Label 
             Text="{Binding Program.Name}"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-
+            HorizontalOptions="Center" 
+            FontSize="Large"
+            />
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <Label Text="Nombre de calorie à perdre : "></Label>
+            <Label Text="{Binding Program.NbCalorie}"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               />
+            <Label Text=" calories"></Label>
+        </HorizontalStackLayout>
         <ScrollView>
             <CollectionView
                      ItemTemplate="{StaticResource ExercicesIntoProgram}"
