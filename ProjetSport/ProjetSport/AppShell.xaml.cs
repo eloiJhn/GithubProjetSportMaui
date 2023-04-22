@@ -2,13 +2,10 @@
 
 public partial class AppShell : Shell
 {
-	public readonly int userId;
-	public AppShell(int? newUserId)
+    public static int UserId { get; set; }
+
+    public AppShell()
 	{
-		if(newUserId is not null)
-		{
-			userId = (int)newUserId;
-		}
 		InitializeComponent();
     }
 }

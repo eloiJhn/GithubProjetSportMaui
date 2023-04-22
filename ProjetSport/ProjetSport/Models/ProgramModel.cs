@@ -12,5 +12,6 @@ namespace ProjetSport.Models
         public string Name { get; set; }
         public string ProgramDescription { get; set; }
         public bool IsActive { get; set; }
+        public int? NbCalorie { get; set; }
     }
 }
