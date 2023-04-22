@@ -22,16 +22,6 @@
             <Label Text=" du programme selectionné"></Label>
         </HorizontalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Il vous restait "></Label>
-            <Label Text="{Binding NbCalorieAPerdre}"></Label>
-            <Label Text=" calorie à perdre ce jour la."/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Vous avez perdu "></Label>
-            <Label Text="{Binding NbCaloriePerdu}"></Label>
-            <Label Text=" calorie ce jour la."/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
             <Border Stroke="#000000"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 50,50,50,50"

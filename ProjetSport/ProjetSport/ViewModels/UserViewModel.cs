@@ -82,10 +82,8 @@ namespace ProjetSport.ViewModels
                     if (Services.UserService.VerifConnection(_identifiant, _password))
                     {
                         int userId = Services.UserService.GetStudentId(_identifiant);
-
-                        AppShell.UserId = userId;
-
-                        App.Current.MainPage = new AppShell();
+                        
+                        App.Current.MainPage = new AppShell(userId);
                     }
                     else
                     {
@@ -108,9 +106,8 @@ namespace ProjetSport.ViewModels
 
             navigateToProfil = new Command(() =>
             {
-                int userId = AppShell.UserId;
-
-                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = userId,  User = Services.UserService.GetStudent(userId), Historique = Services.ActiviteService.GetActivitiesPrograms(userId) }});
+                int id = 17;
+                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = 17,  User = Services.UserService.GetStudent(id), Historique = Services.ActiviteService.GetActivitiesPrograms(id)}});
             });
         }
     }

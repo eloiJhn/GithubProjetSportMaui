@@ -14,7 +14,6 @@
             <On Platform="UWP" Value="#FEFAE2" />
         </OnPlatform>
     </ContentPage.BackgroundColor>
-    <ScrollView>
     <VerticalStackLayout>
         <HorizontalStackLayout HorizontalOptions="Center">
             <Label Text="Votre Profil" FontSize="Large" FontAttributes="Bold"></Label>
@@ -43,7 +42,7 @@
                    ></Image>
             </Border>
         </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,15,0,10">
+        <HorizontalStackLayout HorizontalOptions="Center">
             <Border Stroke="#000000"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 50,50,50,50"
@@ -71,5 +70,4 @@
                      SelectionChangedCommand="{Binding HistoriqueExerciceCommand}"
                     />
     </VerticalStackLayout>
-    </ScrollView>
 </ContentPage>

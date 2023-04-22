@@ -35,26 +35,6 @@ namespace ProjetSport.ViewModels
 			}
 		}
 
-		private int _nbCaloriePerdu;
-
-		public int NbCaloriePerdu
-        {
-			get { return _nbCaloriePerdu; }
-			set { _nbCaloriePerdu = value;
-				OnPropertyChanged();
-			}
-		}
-
-		private int _nbCalorieAPerdre;
-
-		public int NbCalorieAPerdre
-        {
-			get { return _nbCalorieAPerdre; }
-			set { _nbCalorieAPerdre = value; }
-		}
-
-
-
 
 	}
 }
