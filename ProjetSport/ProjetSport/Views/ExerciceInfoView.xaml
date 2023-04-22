@@ -5,7 +5,7 @@
              xmlns:vm="clr-namespace:ProjetSport.ViewModels"
              Title="ExerciceInfoView">
     <ContentPage.BindingContext>
-        <vm:ExerciceViewModel></vm:ExerciceViewModel>
+        <vm:ExerciceViewModels></vm:ExerciceViewModels>
     </ContentPage.BindingContext>
     <ContentPage.BackgroundColor>
         <OnPlatform x:TypeArguments="Color">
@@ -44,13 +44,26 @@
         Command="{Binding NextExerciseCommand}"
         HorizontalOptions="Center"
         VerticalOptions="Center" 
-        IsVisible="{Binding IsNextButtonVisible}" />
+        IsVisible="{Binding IsNextButtonVisible}"
+        IsEnabled="{Binding IsNextButtonEnabled}"/>
 
-        <Label Text="{Binding RemainingTime, StringFormat='{0:mm\\:ss}'}"
-       HorizontalOptions="Center"
-       VerticalOptions="Center"
+
+        <Button Text="Stop Program"
+        Command="{Binding StopProgram}"
+        HorizontalOptions="Center"
+        VerticalOptions="Center" 
+        IsVisible="{Binding IsNextButtonVisible}"/>
+
+        <Label Text="{Binding Exercice.TimeExercice, StringFormat='Temps réalisation exercice : {0:hh\\:mm\\:ss}'}"
+       HorizontalOptions="CenterAndExpand"
+       VerticalOptions="CenterAndExpand"
        FontSize="Medium" />
 
+
+        <Label Text="{Binding TimeElapsed, StringFormat='Temps écoulé : {0:hh\\:mm\\:ss}'}"
+       HorizontalOptions="CenterAndExpand"
+       VerticalOptions="CenterAndExpand"
+       FontSize="Medium" />
 
 
 

@@ -14,7 +14,8 @@ namespace ProjetSport.Models
         public string? Image { get; set; }
         public string NameProgram { get; set; }
         public TimeSpan TimeExercice { get; set; }
-        public string ProgramDescription { get; set; }
 
+        public string ProgramDescription { get; set; }
+        public IList<ProgramToExerciceModel> ProgramToExerciceModels { get; internal set; }
     }
 }

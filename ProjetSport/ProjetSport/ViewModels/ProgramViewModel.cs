@@ -45,7 +45,7 @@ namespace ProjetSport.ViewModels
             _listPrograms = ProgramService.GetPrograms();
 
             NavigateTo = new Command(execute: () => {
-                App.Current.MainPage.Navigation.PushAsync(new ProgramInfoView() { BindingContext = new ProgramInfoViewModel { Program = SelectedProgram, ListExercice = ProgramService.GetExercicesIntoProgram(SelectedProgram.Id) } });
+                App.Current.MainPage.Navigation.PushAsync(new ProgramInfoView() { BindingContext = new ProgramInfoViewModel() { Program = SelectedProgram, ListExercice = ProgramService.GetExercicesIntoProgram(SelectedProgram.Id) } });
             });
         }
 

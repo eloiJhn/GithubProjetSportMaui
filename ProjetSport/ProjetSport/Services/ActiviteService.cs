@@ -86,5 +86,44 @@ namespace ProjetSport.Services
         }
 
 
+        public async static void PostUserActivite(int idProgram, int idExercice, TimeSpan timeSpent)
+        {
+            var UserAuth = new ActiviteUserModel
+            {
+                IdProgram = idProgram,
+                IdExercice = idExercice,
+                TimeElapsed = timeSpent,
+                Date = DateTime.Now // Ajoutez cette ligne
+
+            };
+            var json = JsonConvert.SerializeObject(UserAuth);
+            try
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+                    string apiUrl = "http://192.168.0.29:5033/api/Activite";
+                    //string apiUrl = "https://resterenforme20230125215043.azurewebsites.net/api/Activite";
+                    using (HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content))
+                    {
+                        var status = response.StatusCode;
+                        var responseContent = await response.Content.ReadAsStringAsync(); // Lire le contenu de la réponse
+
+
+                        if ((int)status != 200)
+                        {
+                            await App.Current.MainPage.DisplayAlert("Un problème a eu lieu lors de l'envoi", "Error : " + ((int)status).ToString() + " " + status.ToString() + "\nDétails : " + responseContent, "X");
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                await App.Current.MainPage.DisplayAlert("Un Problème à eu lieu lors de l'envoie", "L'API ne répond pas", "X");
+            }
+        }
+
+
     }
 }

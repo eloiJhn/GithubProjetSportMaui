@@ -28,15 +28,17 @@ namespace ProjetSport.ViewModels
         }
 
 
+
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
 
-        
+
         private ObservableCollection<ProgramToExerciceModel> _listExercice;
         public ObservableCollection<ProgramToExerciceModel> ListExercice
         {
             get { return _listExercice; }
-            set {
+            set
+            {
                 _listExercice = value;
                 OnPropertyChanged();
             }
@@ -47,7 +49,9 @@ namespace ProjetSport.ViewModels
         public ProgramToExerciceModel SelectedExercice
         {
             get { return _selectedExercice; }
-            set { _selectedExercice = value;
+            set
+            {
+                _selectedExercice = value;
                 OnPropertyChanged();
             }
         }
@@ -56,13 +60,13 @@ namespace ProjetSport.ViewModels
         {
             ExoCommand = new Command(execute: () =>
             {
-                App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = new ExerciceViewModel { Exercice = SelectedExercice } });
+                App.Current.MainPage.Navigation.PushAsync(new ExerciceInfoView() { BindingContext = new ExerciceViewModels() { Exercice = SelectedExercice } });
             });
 
             PlayCommand = new Command(execute: async () => await StartProgramAsync());
         }
 
-            private async Task StartProgramAsync()
+        private async Task StartProgramAsync()
         {
             // Récupérer l'idProgram
             int idProgram = Program.Id;
@@ -74,14 +78,15 @@ namespace ProjetSport.ViewModels
                 await ActiviteService.AddActivityAsync(17, idProgram); // Remplacez "1" par l'UserId réel
 
                 // Naviguer vers la première vue d'exercice avec le timer et le bouton pour terminer l'exercice
-                var exerciseViewModel = new ExerciceViewModel
+                var exerciseViewModel = new ExerciceViewModels()
                 {
+                    IdProgram = idProgram,
                     Exercice = firstExercise,
                     AllExercises = ListExercice,
                     CurrentExerciseIndex = 0,
                     IsNextButtonVisible = true
                 };
-                //exerciseViewModel.StartTimer(); // Ajoutez cet appel pour démarrer le timer pour le premier exercice
+                exerciseViewModel.StartTimer(firstExercise, idProgram);
 
 
 
