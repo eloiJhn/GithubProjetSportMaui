@@ -3,7 +3,6 @@ using ProjetSport.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -62,7 +61,7 @@ namespace ProjetSport.ViewModels
 		{
 			HistoriqueExerciceCommand = new Command(() =>
             {
-                App.Current.MainPage.Navigation.PushAsync(new ExerciceActivitiesView() { BindingContext = new ActiviteExerciceViewModel { SelectedProgramActivity = Services.ActiviteService.GetActivitesByUserByProgram(_identifiant, _selectedProgramActivity.Name, _selectedProgramActivity.Date), Avancee = Services.ActiviteService.AvanceProgram(_identifiant, _selectedProgramActivity.Name, _selectedProgramActivity.Date), NbCaloriePerdu = Services.ActiviteService.CaloriePerdu(_identifiant, _selectedProgramActivity.Name, _selectedProgramActivity.Date), NbCalorieAPerdre = Services.ActiviteService.CalorieAPerdre(_identifiant, _selectedProgramActivity.Name, _selectedProgramActivity.Date) } });
+				App.Current.MainPage.Navigation.PushAsync(new ExerciceActivitiesView() { BindingContext = new ActiviteExerciceViewModel { SelectedProgramActivity = Services.ActiviteService.GetActivitesByUserByProgram(_identifiant, _selectedProgramActivity.Name), Avancee = Services.ActiviteService.AvanceProgram(_identifiant, _selectedProgramActivity.Name) } }); ;
 			});
 
         }

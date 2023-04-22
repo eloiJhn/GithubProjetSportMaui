@@ -16,7 +16,6 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
-                            <ColumnDefinition Width="5*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <HorizontalStackLayout Margin="20,10,50,10" HorizontalOptions="Center">
                             <Label Text="Program : " FontSize="Small" TextColor="#5F391F"></Label>
@@ -30,14 +29,6 @@
                             <Label Text="Description :  " FontSize="Small" TextColor="#5F391F"></Label>
                             <Label Text="{Binding ProgramDescription}"
                                Grid.Column="1"
-                           HorizontalTextAlignment="Center"
-                           FontSize="Small"
-                           TextColor="#100905"></Label>
-                        </HorizontalStackLayout>
-                        <HorizontalStackLayout Margin="20,40,0,10" HorizontalOptions="Center">
-                            <Label Text="Nombre de calorie à perdre :  " FontSize="Small" TextColor="#5F391F"></Label>
-                            <Label Text="{Binding NbCalorie}"
-                               Grid.Column="2"
                            HorizontalTextAlignment="Center"
                            FontSize="Small"
                            TextColor="#100905"></Label>
