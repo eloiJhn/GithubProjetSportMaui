@@ -17,24 +17,50 @@ namespace ProjetSport.ViewModels
 
         private List<ActiviteModel> _selectedProgramActivity;
 
-		public List<ActiviteModel> SelectedProgramActivity
+        public List<ActiviteModel> SelectedProgramActivity
         {
-			get { return _selectedProgramActivity; }
-			set { _selectedProgramActivity = value;
-				OnPropertyChanged();
-			}
-		}
+            get { return _selectedProgramActivity; }
+            set
+            {
+                _selectedProgramActivity = value;
+                OnPropertyChanged();
+            }
+        }
 
-		private int _avancee;
+        private int _avancee;
 
-		public int Avancee
+        public int Avancee
         {
-			get { return _avancee; }
-			set { _avancee = value;
-				OnPropertyChanged();
-			}
-		}
+            get { return _avancee; }
+            set
+            {
+                _avancee = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _nbCaloriePerdu;
+
+        public int NbCaloriePerdu
+        {
+            get { return _nbCaloriePerdu; }
+            set
+            {
+                _nbCaloriePerdu = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int _nbCalorieAPerdre;
+
+        public int NbCalorieAPerdre
+        {
+            get { return _nbCalorieAPerdre; }
+            set { _nbCalorieAPerdre = value; }
+        }
 
 
-	}
+
+
+    }
 }

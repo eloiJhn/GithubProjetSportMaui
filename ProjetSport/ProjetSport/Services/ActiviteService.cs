@@ -37,7 +37,7 @@ namespace ProjetSport.Services
             }
         }
 
-        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName)
+        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName, DateTime date)
         {
             try
             {
@@ -52,14 +52,16 @@ namespace ProjetSport.Services
             }
         }
 
-        public static int AvanceProgram(int id, string programName)
+
+        public static int AvanceProgram(int id, string programName, DateTime date)
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName);
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName + "/" + formattedDate);
                 return JsonConvert.DeserializeObject<int>(json);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }

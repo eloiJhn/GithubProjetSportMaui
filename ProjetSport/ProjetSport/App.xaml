@@ -12,8 +12,9 @@
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate x:Key ="Programs">
                 <Border Stroke="#000000" StrokeThickness="3" BackgroundColor="#F2EED5" StrokeShape="RoundRectangle 10, 20, 20, 10" Margin="5,10,5,20">
-                        <Grid>
+                    <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"></ColumnDefinition>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
                             <ColumnDefinition Width="5*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
@@ -29,6 +30,14 @@
                             <Label Text="Description :  " FontSize="Small" TextColor="#5F391F"></Label>
                             <Label Text="{Binding ProgramDescription}"
                                Grid.Column="1"
+                           HorizontalTextAlignment="Center"
+                           FontSize="Small"
+                           TextColor="#100905"></Label>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout Margin="20,40,0,10" HorizontalOptions="Center">
+                            <Label Text="Nombre de calorie à perdre :  " FontSize="Small" TextColor="#5F391F"></Label>
+                            <Label Text="{Binding NbCalorie}"
+                               Grid.Column="2"
                            HorizontalTextAlignment="Center"
                            FontSize="Small"
                            TextColor="#100905"></Label>
@@ -101,7 +110,7 @@
                             <ColumnDefinition Width="2*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <HorizontalStackLayout Margin="20,10,10,33">
-                        <Label Text="{Binding NameExercice}"
+                            <Label Text="{Binding NameExercice}"
                    FontSize="Small"
                    HorizontalOptions="Center"
                    Grid.Column="0"
@@ -109,7 +118,7 @@
                     ></Label>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout Margin="40,50,10,10">
-                        <Label Text="{Binding DescriptionExercice}"
+                            <Label Text="{Binding DescriptionExercice}"
                    Grid.Column="1"
                    HorizontalTextAlignment="Center"
                    FontSize="Small"
@@ -118,7 +127,7 @@
                     ></Label>
                         </HorizontalStackLayout>
                         <HorizontalStackLayout Margin="300,5,0,10">
-                        <Image Source="{Binding Image}"
+                            <Image Source="{Binding Image}"
                    HeightRequest="50"
                    WidthRequest="50"
                    Grid.Column="2"

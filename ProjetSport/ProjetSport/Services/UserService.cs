@@ -7,7 +7,7 @@ namespace ProjetSport.Services
 {
     public class UserService
     {
-        readonly static string baseURI = "https://resterenforme20230125215043.azurewebsites.net/api/User";
+        readonly static string baseURI = "https://resterenforme.azurewebsites.net/api/User";
 
 
         private static string GetDataFromApi(string url)
@@ -35,7 +35,7 @@ namespace ProjetSport.Services
                 string hashedPassword = Convert.ToHexString(hashedPasswordBytes);
 
 
-                var json = GetDataFromApi (baseURI + "/verif?identifiant=" + identifiant + "&password=" + hashedPassword);
+                var json = GetDataFromApi(baseURI + "/verif?identifiant=" + identifiant + "&password=" + hashedPassword);
 
                 return JsonConvert.DeserializeObject<bool>(json);
             }
@@ -60,7 +60,7 @@ namespace ProjetSport.Services
                 throw e;
                 //return list;
             }
-        }   
+        }
 
         public static UserModel GetStudent(int id)
         {
@@ -98,8 +98,12 @@ namespace ProjetSport.Services
                         var status = response.StatusCode;
 
                         if ((int)status != 200)
-                        { 
-                            await App.Current.MainPage.DisplayAlert("Un Problème à eu lieu lors de l'envoie", " Error : " + ((int)status).ToString() + " " + status.ToString(),"X");
+                        {
+                            await App.Current.MainPage.DisplayAlert("Un Problème à eu lieu lors de l'envoie", " Error : " + ((int)status).ToString() + " " + status.ToString(), "X");
+                        }
+                        else
+                        {
+                            await App.Current.MainPage.DisplayAlert("Reussi", "Votre compte a bien été crée", "X");
                         }
                     }
                 }

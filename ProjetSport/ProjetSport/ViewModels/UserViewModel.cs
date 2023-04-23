@@ -28,7 +28,9 @@ namespace ProjetSport.ViewModels
         public string Identifiant
         {
             get { return _identifiant; }
-            set { _identifiant = value;
+            set
+            {
+                _identifiant = value;
                 OnPropertyChanged();
             }
         }
@@ -38,7 +40,9 @@ namespace ProjetSport.ViewModels
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value;
+            set
+            {
+                _firstName = value;
                 OnPropertyChanged();
             }
         }
@@ -48,7 +52,9 @@ namespace ProjetSport.ViewModels
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value;
+            set
+            {
+                _lastName = value;
                 OnPropertyChanged();
             }
         }
@@ -58,7 +64,9 @@ namespace ProjetSport.ViewModels
         public string Password
         {
             get { return _password; }
-            set{ _password = value;
+            set
+            {
+                _password = value;
                 OnPropertyChanged();
             }
         }
@@ -82,8 +90,10 @@ namespace ProjetSport.ViewModels
                     if (Services.UserService.VerifConnection(_identifiant, _password))
                     {
                         int userId = Services.UserService.GetStudentId(_identifiant);
-                        
-                        App.Current.MainPage = new AppShell(userId);
+
+                        AppShell.UserId = userId;
+
+                        App.Current.MainPage = new AppShell();
                     }
                     else
                     {
@@ -106,8 +116,9 @@ namespace ProjetSport.ViewModels
 
             navigateToProfil = new Command(() =>
             {
-                int id = 17;
-                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = 17,  User = Services.UserService.GetStudent(id), Historique = Services.ActiviteService.GetActivitiesPrograms(id)}});
+                int userId = AppShell.UserId;
+
+                App.Current.MainPage.Navigation.PushAsync(new ProfilUserView() { BindingContext = new UserInfoViewModel { Identifiant = userId, User = Services.UserService.GetStudent(userId), Historique = Services.ActiviteService.GetActivitiesPrograms(userId) } });
             });
         }
     }

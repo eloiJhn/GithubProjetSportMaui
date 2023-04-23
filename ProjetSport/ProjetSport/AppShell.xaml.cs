@@ -2,13 +2,10 @@
 
 public partial class AppShell : Shell
 {
-	public readonly int userId;
-	public AppShell(int? newUserId)
-	{
-		if(newUserId is not null)
-		{
-			userId = (int)newUserId;
-		}
-		InitializeComponent();
+    public static int UserId { get; set; } // Propriété statique pour stocker l'ID de l'utilisateur
+
+    public AppShell()
+    {
+        InitializeComponent();
     }
 }
