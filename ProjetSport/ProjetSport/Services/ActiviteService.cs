@@ -41,14 +41,13 @@ namespace ProjetSport.Services
         {
             try
             {
-                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName);
+                string formattedDate = date.ToString("yyyy-MM-dd");
+                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName + "/" + formattedDate);
                 return JsonConvert.DeserializeObject<List<ActiviteModel>>(json);
             }
             catch (Exception e)
             {
-                //var list = new ObservableCollection<ProgramToExerciceModel>();
                 throw e;
-                //return list;
             }
         }
 
@@ -133,9 +132,7 @@ namespace ProjetSport.Services
                 {
                     httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
-                    string apiUrl = "http://192.168.0.29:5033/api/Activite";
-                    //string apiUrl = "https://resterenforme20230125215043.azurewebsites.net/api/Activite";
-                    using (HttpResponseMessage response = await httpClient.PostAsync(apiUrl, content))
+                    using (HttpResponseMessage response = await httpClient.PostAsync(baseURI, content))
                     {
                         var status = response.StatusCode;
                         var responseContent = await response.Content.ReadAsStringAsync(); // Lire le contenu de la réponse
