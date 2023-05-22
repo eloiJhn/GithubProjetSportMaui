@@ -10,7 +10,7 @@ namespace ProjetSport.Services
 {
     class ActiviteService
     {
-        readonly static string baseURI = "https://resterenforme20230125215043.azurewebsites.net/api/Activite";
+        readonly static string baseURI = "http://192.168.0.29:5033/api/Activite";
 
 
         private static string GetDataFromApi(string url)
@@ -115,10 +115,11 @@ namespace ProjetSport.Services
         }
 
 
-        public async static void PostUserActivite(int idProgram, int idExercice, TimeSpan timeSpent)
+        public async static void PostUserActivite(int userId, int idProgram, int idExercice, TimeSpan timeSpent)
         {
             var UserAuth = new ActiviteUserModel
             {
+                UserId = userId,
                 IdProgram = idProgram,
                 IdExercice = idExercice,
                 TimeElapsed = timeSpent,

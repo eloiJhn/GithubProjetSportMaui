@@ -212,9 +212,11 @@ namespace ProjetSport.ViewModels
 
 
             IdExercice = Exercice.IdExercice; // mettre à jour l'id de l'exercice en cours
-            
+            int userId = AppShell.UserId;
 
-            Services.ActiviteService.PostUserActivite(IdProgram, IdExercice, TimeElapsed);
+
+
+            Services.ActiviteService.PostUserActivite(userId, IdProgram, IdExercice, TimeElapsed);
 
             TimeElapsed = TimeSpan.Zero;
 
