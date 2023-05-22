@@ -7,7 +7,7 @@ namespace ProjetSport.Services
 {
     public class UserService
     {
-        readonly static string baseURI = "https://resterenforme.azurewebsites.net/api/User";
+        readonly static string baseURI = "https://resterenforme20230125215043.azurewebsites.net/api/User";
 
 
         private static string GetDataFromApi(string url)
