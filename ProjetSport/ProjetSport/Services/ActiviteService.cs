@@ -10,7 +10,7 @@ namespace ProjetSport.Services
 {
     class ActiviteService
     {
-        readonly static string baseURI = "http://192.168.0.29:5033/api/Activite";
+        readonly static string baseURI = "https://resterenforme20230125215043.azurewebsites.net/api/Activite";
 
 
         private static string GetDataFromApi(string url)
