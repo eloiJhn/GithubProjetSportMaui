@@ -115,10 +115,11 @@ namespace ProjetSport.Services
         }
 
 
-        public async static void PostUserActivite(int idProgram, int idExercice, TimeSpan timeSpent)
+        public async static void PostUserActivite(int userId, int idProgram, int idExercice, TimeSpan timeSpent)
         {
             var UserAuth = new ActiviteUserModel
             {
+                UserId = userId,
                 IdProgram = idProgram,
                 IdExercice = idExercice,
                 TimeElapsed = timeSpent,
