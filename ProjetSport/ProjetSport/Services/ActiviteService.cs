@@ -37,12 +37,12 @@ namespace ProjetSport.Services
             }
         }
 
-        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName, DateTime date)
+        public static List<ActiviteModel>? GetActivitesByUserByProgram(int id, string programName, DateTime date, int attempt)
         {
             try
             {
                 string formattedDate = date.ToString("yyyy-MM-dd");
-                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName + "/" + formattedDate);
+                var json = GetDataFromApi(baseURI + "/GetActivitesByUserByProgram/" + id + "/" + programName + "/" + formattedDate + "/" + attempt);
                 return JsonConvert.DeserializeObject<List<ActiviteModel>>(json);
             }
             catch (Exception e)
@@ -52,12 +52,12 @@ namespace ProjetSport.Services
         }
 
 
-        public static int AvanceProgram(int id, string programName, DateTime date)
+        public static int AvanceProgram(int id, string programName, DateTime date, int attempt)
         {
             try
             {
                 string formattedDate = date.ToString("yyyy-MM-dd");
-                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName + "/" + formattedDate);
+                var json = GetDataFromApi(baseURI + "/GetAvance/" + id + "/" + programName + "/" + formattedDate + "/" + attempt);
                 return JsonConvert.DeserializeObject<int>(json);
             }
             catch (Exception e)
@@ -66,12 +66,12 @@ namespace ProjetSport.Services
             }
         }
 
-        public static int CaloriePerdu(int id, string programName, DateTime date)
+        public static int CaloriePerdu(int id, string programName, DateTime date, int attempt)
         {
             try
             {
                 string formattedDate = date.ToString("yyyy-MM-dd");
-                var json = GetDataFromApi(baseURI + "/GetCaloriePerduPerUser/" + id + "/" + programName + "/" + formattedDate);
+                var json = GetDataFromApi(baseURI + "/GetCaloriePerduPerUser/" + id + "/" + programName + "/" + formattedDate + "/" + attempt);
                 return JsonConvert.DeserializeObject<int>(json);
             }
             catch (Exception e)
@@ -80,12 +80,12 @@ namespace ProjetSport.Services
             }
         }
 
-        public static int CalorieAPerdre(int id, string programName, DateTime date)
+        public static int CalorieAPerdre(int id, string programName, DateTime date, int attempt)
         {
             try
             {
                 string formattedDate = date.ToString("yyyy-MM-dd");
-                var json = GetDataFromApi(baseURI + "/GetCalorieAPerdrePerUser/" + id + "/" + programName + "/" + formattedDate);
+                var json = GetDataFromApi(baseURI + "/GetCalorieAPerdrePerUser/" + id + "/" + programName + "/" + formattedDate + "/" + attempt);
                 return JsonConvert.DeserializeObject<int>(json);
             }
             catch (Exception e)

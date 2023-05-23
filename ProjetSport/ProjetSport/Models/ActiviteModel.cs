@@ -12,6 +12,6 @@ namespace ProjetSport.Models
         public string NameExercice { get; set; }
         public string Name { get; set; }
         public DateTime Date { get; set; }
-
+        public int Attempt { get; set; }
     }
 }
