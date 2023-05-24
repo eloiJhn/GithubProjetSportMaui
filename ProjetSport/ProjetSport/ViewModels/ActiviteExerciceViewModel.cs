@@ -58,9 +58,5 @@ namespace ProjetSport.ViewModels
             get { return _nbCalorieAPerdre; }
             set { _nbCalorieAPerdre = value; }
         }
-
-
-
-
     }
 }
