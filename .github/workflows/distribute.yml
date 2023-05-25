@@ -1,0 +1,36 @@
+name: Distribute to Firebase App Distribution
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_distribute:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Build and publish .NET MAUI app
+      run: |
+        dotnet restore
+        dotnet build -c Release -t:SignAndroidPackage
+        dotnet publish -f net7.0-android -c Release /p:AndroidSigningKeyPass=<your_key_password> /p:AndroidSigningStorePass=<your_keystore_password>
+      env:
+        ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk"
+
+    - name: Distribute app to Firebase App Distribution
+      run: |
+        curl -LO https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github
+        tar zxvf stable?release=linux64-binary&source=github
+        sudo mv cf /usr/local/bin
+        echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }} > service_account.json
+        ./google-cloud-sdk/bin/gcloud auth activate-service-account --key-file=service_account.json
+        ./google-cloud-sdk/bin/gcloud firebase appdistribution distribute <path_to_your_APK> --app <your_app_id> --release-notes "New release"
