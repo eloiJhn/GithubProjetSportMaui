@@ -56,6 +56,8 @@ namespace ProjetSport.ViewModels
             }
         }
 
+
+
         public ProgramInfoViewModel()
         {
             ExoCommand = new Command(execute: () =>
@@ -70,6 +72,8 @@ namespace ProjetSport.ViewModels
         {
             // Récupérer l'idProgram
             int idProgram = Program.Id;
+
+
 
             // Ajouter l'activité et récupérer le premier exercice
             ProgramToExerciceModel firstExercise = ListExercice.FirstOrDefault();

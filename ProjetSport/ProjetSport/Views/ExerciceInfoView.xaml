@@ -63,7 +63,9 @@
         <Label Text="{Binding TimeElapsed, StringFormat='Temps écoulé : {0:hh\\:mm\\:ss}'}"
        HorizontalOptions="CenterAndExpand"
        VerticalOptions="CenterAndExpand"
-       FontSize="Medium" />
+       FontSize="Medium"
+       IsVisible="{Binding IsRunningProgramPage}"
+/>
 
 
 

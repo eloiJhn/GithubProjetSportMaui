@@ -129,6 +129,9 @@ namespace ProjetSport.ViewModels
 
         private async void ExecuteStopProgram()
         {
+            IsRunningProgramPage = false;
+
+
             // Arrêter le timer
             _timer.Stop();
 
@@ -165,6 +168,9 @@ namespace ProjetSport.ViewModels
             IdProgram = idProgram;
             Programs = program;
 
+            IsRunningProgramPage = true;
+
+
             if (CurrentExerciseIndex == 0)
             {
                 Exercice = Programs;
@@ -195,6 +201,18 @@ namespace ProjetSport.ViewModels
                 OnPropertyChanged(nameof(IsNextButtonEnabled));
             }
         }
+
+        private bool _isRunningProgramPage;
+        public bool IsRunningProgramPage
+        {
+            get { return _isRunningProgramPage; }
+            set
+            {
+                _isRunningProgramPage = value;
+                OnPropertyChanged(nameof(IsRunningProgramPage));
+            }
+        }
+
 
 
 
