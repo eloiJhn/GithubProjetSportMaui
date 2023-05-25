@@ -25,6 +25,16 @@ jobs:
         dotnet publish -f net7.0-android -c Release /p:AndroidSigningKeyPass=<your_key_password> /p:AndroidSigningStorePass=<your_keystore_password>
       env:
         ANDROID_SDK_ROOT: "/usr/local/lib/android/sdk"
+        
+    - name: Build and Deploy to Firebase
+      run: |
+        ./gradlew assembleRelease
+        echo "${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}" > service-account.json
+        firebase deploy --token ${{ secrets.KEY_PASSWORD }}
+      env:
+        KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+
 
     - name: Distribute app to Firebase App Distribution
       run: |
