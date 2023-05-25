@@ -119,9 +119,9 @@ namespace ProjetSport.ViewModels
             _timer.Interval = 1000;
             _timer.Elapsed += Timer_Elapsed;
 
-            
+
             IsNextButtonEnabled = true;
-        
+
 
 
             LoadExercises();
@@ -129,6 +129,9 @@ namespace ProjetSport.ViewModels
 
         private async void ExecuteStopProgram()
         {
+            IsRunningProgramPage = false;
+
+
             // Arrêter le timer
             _timer.Stop();
 
@@ -152,18 +155,21 @@ namespace ProjetSport.ViewModels
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-        _timer.Start();
-          
-                TimeElapsed = TimeElapsed.Add(TimeSpan.FromSeconds(1));
-                OnPropertyChanged(nameof(TimeElapsed));
+            _timer.Start();
+
+            TimeElapsed = TimeElapsed.Add(TimeSpan.FromSeconds(1));
+            OnPropertyChanged(nameof(TimeElapsed));
 
         }
         public void StartTimer(ProgramToExerciceModel program, int idProgram)
         {
-       
+
             //UserId = userId;
             IdProgram = idProgram;
             Programs = program;
+
+            IsRunningProgramPage = true;
+
 
             if (CurrentExerciseIndex == 0)
             {
@@ -196,10 +202,22 @@ namespace ProjetSport.ViewModels
             }
         }
 
+        private bool _isRunningProgramPage;
+        public bool IsRunningProgramPage
+        {
+            get { return _isRunningProgramPage; }
+            set
+            {
+                _isRunningProgramPage = value;
+                OnPropertyChanged(nameof(IsRunningProgramPage));
+            }
+        }
 
 
 
-        private async  void ExecuteNextExerciseCommand()
+
+
+        private async void ExecuteNextExerciseCommand()
         {
             IsNextButtonEnabled = false;
 
@@ -234,7 +252,7 @@ namespace ProjetSport.ViewModels
             }
             else
             {
-               await App.Current.MainPage.DisplayAlert("Fin des exercices", "Vous avez terminé tous les exercices !", "OK");
+                await App.Current.MainPage.DisplayAlert("Fin des exercices", "Vous avez terminé tous les exercices !", "OK");
                 await App.Current.MainPage.Navigation.PushAsync(new ProgramView());
 
 
