@@ -14,52 +14,53 @@
             <On Platform="UWP" Value="#FEFAE2" />
         </OnPlatform>
     </ContentPage.BackgroundColor>
-    <VerticalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Label Text="Votre Profil" FontSize="Large" FontAttributes="Bold"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center" Margin="0,15,0,40">
-            <Label Text="{Binding User.FirstName}" Margin="0,0,0,0" FontSize="Medium" FontAttributes="Bold"></Label>
-            <Label Text="{Binding User.LastName}" Margin="5,0,0,0" FontSize="Medium" FontAttributes="Bold"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Votre identifiant : " FontSize="Header"></Label>
-            <Label Text="{Binding User.Identifiant}" FontSize="Medium" FontAttributes="Bold"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Margin="0,20,0,30">
-            <Label Text="Date de création : " FontSize="Header"></Label>
-            <Label Text="{Binding User.CreationDate, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Medium" FontAttributes="Bold"></Label>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Border Stroke="#000000"
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Label Text="Votre Profil" FontSize="Large" FontAttributes="Bold"></Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,15,0,40">
+                <Label Text="{Binding User.FirstName}" Margin="0,0,0,0" FontSize="Medium" FontAttributes="Bold"></Label>
+                <Label Text="{Binding User.LastName}" Margin="5,0,0,0" FontSize="Medium" FontAttributes="Bold"></Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Label Text="Votre identifiant : " FontSize="Header"></Label>
+                <Label Text="{Binding User.Identifiant}" FontSize="Medium" FontAttributes="Bold"></Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Margin="0,20,0,30">
+                <Label Text="Date de création : " FontSize="Header"></Label>
+                <Label Text="{Binding User.CreationDate, StringFormat='{0:dd/MM/yyyy}'}" FontSize="Medium" FontAttributes="Bold"></Label>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Border Stroke="#000000"
                 StrokeThickness="3"
                 StrokeShape="RoundRectangle 50,50,50,50"
                 BackgroundColor="#DFDBC6"
                 HorizontalOptions="Center">
-                <Image Source="{Binding User.ImageUser}" WidthRequest="80"
+                    <Image Source="{Binding User.ImageUser}" WidthRequest="80"
                    HeightRequest="80"
                        HorizontalOptions="Center"
                    ></Image>
-            </Border>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Border Stroke="#000000"
+                </Border>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout HorizontalOptions="Center">
+                <Border Stroke="#000000"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 50,50,50,50"
                 BackgroundColor="#DFDBC6"
                 HorizontalOptions="Center">
-                <Button Text="Voir votre historique d'activité" Clicked="Button_Clicked" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
-            </Border>
-            <Border Stroke="#000000"
+                    <Button Text="Voir votre historique d'activité" Clicked="Button_Clicked" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
+                </Border>
+                <Border Stroke="#000000"
                 StrokeThickness="5"
                 StrokeShape="RoundRectangle 50,50,50,50"
                 BackgroundColor="#DFDBC6"
                 HorizontalOptions="Center">
-                <Button Text="Réduire" Clicked="Button_Clicked_1" Margin="5,0,0,0" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
-            </Border>
-        </HorizontalStackLayout>
+                    <Button Text="Réduire" Clicked="Button_Clicked_1" Margin="5,0,0,0" HorizontalOptions="Center" BackgroundColor="#FEF8BF" TextColor="#000000"></Button>
+                </Border>
+            </HorizontalStackLayout>
 
-        <CollectionView WidthRequest="350"
+            <CollectionView WidthRequest="350"
                         x:Name="CollectionView"
                         IsVisible="False"
                      ItemTemplate="{StaticResource Activite}"
@@ -69,5 +70,6 @@
                      SelectionMode="Single"
                      SelectionChangedCommand="{Binding HistoriqueExerciceCommand}"
                     />
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
