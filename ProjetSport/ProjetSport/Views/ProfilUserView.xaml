@@ -15,7 +15,6 @@
         </OnPlatform>
     </ContentPage.BackgroundColor>
     <ScrollView>
-    //update
         <VerticalStackLayout>
             <HorizontalStackLayout HorizontalOptions="Center">
                 <Label Text="Votre Profil" FontSize="Large" FontAttributes="Bold"></Label>
