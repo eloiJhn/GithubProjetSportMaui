@@ -22,6 +22,13 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16
+        
+    - name: Check current directory
+      run: |
+        echo "Current directory is"
+        pwd
+        echo "Directory content is"
+        ls -a
 
     - name: Install dependencies
       run: dotnet restore
