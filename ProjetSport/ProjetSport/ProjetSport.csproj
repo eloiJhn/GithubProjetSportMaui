@@ -34,7 +34,7 @@
       <AndroidSigningKeyStore>$(KEYSTORE_PATH)</AndroidSigningKeyStore>
       <AndroidSigningStorePass>$(KEYSTORE_PASSWORD)</AndroidSigningStorePass>
       <AndroidSigningKeyAlias>$(KEYSTORE_ALIAS)</AndroidSigningKeyAlias>
-      <AndroidSigningKeyPass>$(KEYSTORE_PASSWORD)</AndroidSigningKeyPass>
+      <AndroidSigningKeyPass>$(KEY_PASSWORD)</AndroidSigningKeyPass>
 
 
     <!--<AndroidKeyStore>true</AndroidKeyStore>
