@@ -48,10 +48,13 @@ jobs:
         KEYSTORE_PATH: ${{ github.workspace }}/ProjetSport/my-release-key.keystore
         KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
-
+        KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        
 
     - name: Publish
-      run: dotnet publish ProjetSport/ProjetSport.sln --configuration Release --no-build --output ./publish
+      run: dotnet publish ProjetSport/ProjetSport.sln --framework net7.0-android --configuration Release --output ./publish/android
+
+
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
