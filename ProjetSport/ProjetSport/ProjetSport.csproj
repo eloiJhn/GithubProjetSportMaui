@@ -30,7 +30,7 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\micho\source\repos\GithubProjetSportMaui\ProjetSport</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\micho\source\repos\GithubProjetSportMaui\ProjetSport/my-release-key.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>eloi</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>projetsportmaui</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>eloi</AndroidSigningKeyPass>
