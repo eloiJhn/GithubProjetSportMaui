@@ -40,7 +40,10 @@ jobs:
       run: dotnet restore ProjetSport/ProjetSport.sln 
 
     - name: Build
-      run: dotnet build ProjetSport/ProjetSport.sln --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore ProjetSport/ProjetSport.sln
+      env:
+        KEYSTORE_PATH: ProjetSport/my-release-key.keystore
+
 
     - name: Publish
       run: dotnet publish ProjetSport/ProjetSport.sln --configuration Release --no-build --output ./publish
