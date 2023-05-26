@@ -31,7 +31,7 @@
 
 
       <AndroidKeyStore>True</AndroidKeyStore>
-      <AndroidSigningKeyStore>my-release-key.keystore</AndroidSigningKeyStore>
+      <AndroidSigningKeyStore>$(pwd)/ProjetSport/my-release-key.keystore</AndroidSigningKeyStore>
       <AndroidSigningStorePass>eloieloi</AndroidSigningStorePass>
       <AndroidSigningKeyAlias>projetsportmaui</AndroidSigningKeyAlias>
       <AndroidSigningKeyPass>eloieloi</AndroidSigningKeyPass>
