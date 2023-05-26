@@ -52,8 +52,7 @@ jobs:
         
 
     - name: Publish
-      run: dotnet publish ProjetSport/ProjetSport.sln --framework net7.0-android --configuration Release --output ./publish/android
-
+      run: dotnet publish ProjetSport/ProjetSport/ProjetSport.csproj --framework net7.0-android --configuration Release --output ./publish/android
 
 
     - name: Deploy to Firebase
