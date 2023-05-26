@@ -37,12 +37,6 @@
       <AndroidSigningKeyPass>$(KEY_PASSWORD)</AndroidSigningKeyPass>
 
 
-    <!--<AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>$(KEYSTORE_PATH)</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>eloi</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>projetsportmaui</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>eloi</AndroidSigningKeyPass>-->
-
   </PropertyGroup>
 
   <ItemGroup>
