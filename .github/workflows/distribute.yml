@@ -51,7 +51,7 @@ jobs:
 
 
     - name: Publish
-      run: dotnet publish ProjetSport/ProjetSport.sln --framework net7.0-android --configuration Release --no-build --output ./publish/android
+      run: dotnet publish ProjetSport/ProjetSport.sln --framework net7.0-android --configuration Release --output ./publish/android
 
 
 
