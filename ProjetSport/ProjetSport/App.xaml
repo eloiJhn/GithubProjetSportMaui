@@ -118,7 +118,7 @@
                    Grid.Column="0"
                                TextColor="#100905"
                     ></Label>
-                            <Label Text="test"></Label>
+                            
                         </HorizontalStackLayout>
                         <HorizontalStackLayout Margin="40,50,10,10">
                             <Label Text="{Binding DescriptionExercice}"
