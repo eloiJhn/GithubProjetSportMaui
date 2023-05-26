@@ -30,13 +30,11 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 
-    <PropertyGroup>
       <AndroidKeyStore>True</AndroidKeyStore>
       <AndroidSigningKeyStore>$(KEYSTORE_PATH)</AndroidSigningKeyStore>
       <AndroidSigningStorePass>$(KEYSTORE_PASSWORD)</AndroidSigningStorePass>
       <AndroidSigningKeyAlias>$(KEYSTORE_ALIAS)</AndroidSigningKeyAlias>
       <AndroidSigningKeyPass>$(KEYSTORE_PASSWORD)</AndroidSigningKeyPass>
-    </PropertyGroup>
 
 
     <!--<AndroidKeyStore>true</AndroidKeyStore>
