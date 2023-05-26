@@ -38,6 +38,9 @@ jobs:
 
     - name: Install dependencies
       run: dotnet restore ProjetSport/ProjetSport.sln 
+      
+    - name: Check Keystore File
+      run: ls -la ProjetSport/
 
     - name: Build
       run: dotnet build --configuration Release --no-restore ProjetSport/ProjetSport.sln
