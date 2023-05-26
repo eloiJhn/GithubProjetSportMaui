@@ -29,9 +29,12 @@ jobs:
         pwd
         echo "Directory content is"
         ls -a
+        
+    - name: Check ProjetSport directory
+      run: ls -a ProjetSport
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ProjetSport/ProjetSport.sln 
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
