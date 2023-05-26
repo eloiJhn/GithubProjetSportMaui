@@ -29,11 +29,21 @@
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
-    <AndroidKeyStore>true</AndroidKeyStore>
+
+    <PropertyGroup>
+      <AndroidKeyStore>True</AndroidKeyStore>
+      <AndroidSigningKeyStore>$(KEYSTORE_PATH)</AndroidSigningKeyStore>
+      <AndroidSigningStorePass>$(KEYSTORE_PASSWORD)</AndroidSigningStorePass>
+      <AndroidSigningKeyAlias>$(KEYSTORE_ALIAS)</AndroidSigningKeyAlias>
+      <AndroidSigningKeyPass>$(KEYSTORE_PASSWORD)</AndroidSigningKeyPass>
+    </PropertyGroup>
+
+
+    <!--<AndroidKeyStore>true</AndroidKeyStore>
     <AndroidSigningKeyStore>$(KEYSTORE_PATH)</AndroidSigningKeyStore>
     <AndroidSigningStorePass>eloi</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>projetsportmaui</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>eloi</AndroidSigningKeyPass>
+    <AndroidSigningKeyPass>eloi</AndroidSigningKeyPass>-->
 
   </PropertyGroup>
 
