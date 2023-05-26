@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "284517297402",
+    "project_id": "projetsportmaui",
+    "storage_bucket": "projetsportmaui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284517297402:android:3175896e4b44aa26fced43",
+        "android_client_info": {
+          "package_name": "com.companyname.projetsport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "284517297402-h64ed2cccjgle8t6qt0dkkl1cgfc0p5t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCugUmruBviscV6z_2d69gsj6_38I1owTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "284517297402-h64ed2cccjgle8t6qt0dkkl1cgfc0p5t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
