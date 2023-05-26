@@ -41,7 +41,8 @@
                            HorizontalTextAlignment="Center"
                            FontSize="Small"
                            TextColor="#100905"></Label>
-                   
+                            <Label Text="test"></Label>
+                            <!--commentaire-->
                         </HorizontalStackLayout>
                     </Grid>
                 </Border>
