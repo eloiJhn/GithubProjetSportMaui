@@ -54,6 +54,15 @@ jobs:
     - name: Publish
       run: dotnet publish ProjetSport/ProjetSport/ProjetSport.csproj --framework net7.0-android --configuration Release --output ./publish/android
       
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
+
+    - name: Initialize Firebase
+      run: firebase init hosting --public ./publish/android --yes
+      env:
+        CI: true
+
+      
     - name: Initialize Firebase
       run: firebase init hosting
 
