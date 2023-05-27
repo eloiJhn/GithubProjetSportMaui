@@ -57,14 +57,16 @@ jobs:
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
 
-    - name: Initialize Firebase
-      run: firebase init hosting --public ./publish/android --yes
+    - name: Initialize Firebase Hosting
+      run: |
+        echo yes | firebase init hosting
       env:
         CI: true
 
-      
-    - name: Initialize Firebase
-      run: firebase init hosting
+    - name: Update firebase.json
+      run: |
+        echo '{ "hosting": { "public": "./publish/android", "ignore": ["firebase.json", "**/.*", "**/node_modules/**"] } }' > firebase.json
+
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
