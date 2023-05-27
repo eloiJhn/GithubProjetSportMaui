@@ -28,11 +28,17 @@
     }
   ],
   "hosting": {
-    "public": "public",
+    "public": "publish/android",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }
