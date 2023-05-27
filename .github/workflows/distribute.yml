@@ -53,12 +53,27 @@ jobs:
 
     - name: Publish
       run: dotnet publish ProjetSport/ProjetSport/ProjetSport.csproj --framework net7.0-android --configuration Release --output ./publish/android
+      
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
+
+    - name: Initialize Firebase Hosting
+      run: |
+        echo yes | firebase --token ${{ secrets.FIREBASE_TOKEN }} init hosting
+      env:
+       CI: true
+
+
+    - name: Update firebase.json
+      run: |
+        echo '{ "hosting": { "public": "./publish/android", "ignore": ["firebase.json", "**/.*", "**/node_modules/**"] } }' > firebase.json
 
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: appdistribution:distribute publish/com.companyname.projetsport-Signed.apk
+         args: appdistribution:distribute ./publish/android/com.companyname.projetsport-Signed.apk --app 1:284517297402:android:3175896e4b44aa26fced43 --groups testeurs
       env:
-        FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         PROJECT_ID: 1:284517297402:android:3175896e4b44aa26fced43
+
