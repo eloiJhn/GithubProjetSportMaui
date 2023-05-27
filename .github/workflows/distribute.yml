@@ -58,7 +58,7 @@ jobs:
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
-        args: appdistribution:distribute publish/com.companyname.projetsport-Signed.apk
+        args: appdistribution:distribute ./publish/android/com.companyname.projetsport-Signed.apk --app 1:284517297402:android:3175896e4b44aa26fced43 --groups testeurs
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         PROJECT_ID: 1:284517297402:android:3175896e4b44aa26fced43
