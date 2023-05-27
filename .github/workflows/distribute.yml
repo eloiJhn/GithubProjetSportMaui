@@ -59,7 +59,7 @@ jobs:
 
     - name: Initialize Firebase Hosting
       run: |
-        echo yes | firebase --token ${{ secrets.FIREBASE_TOKEN }} init hosting
+        echo yes | firebase --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }} --non-interactive init hosting
       env:
        CI: true
 
