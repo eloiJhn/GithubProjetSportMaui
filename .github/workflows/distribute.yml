@@ -72,3 +72,4 @@ jobs:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         PROJECT_ID: 1:284517297402:android:3175896e4b44aa26fced43
 
+
