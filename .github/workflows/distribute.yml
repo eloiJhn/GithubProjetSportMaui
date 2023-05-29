@@ -22,16 +22,7 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: 16
-        
-    - name: Check current directory
-      run: |
-        echo "Current directory is"
-        pwd
-        echo "Directory content is"
-        ls -a
-        
-    - name: Check ProjetSport directory
-      run: ls -a ProjetSport
+
       
     - name: Install .NET Workloads
       run: dotnet workload install maui-android
@@ -39,9 +30,6 @@ jobs:
     - name: Install dependencies
       run: dotnet restore ProjetSport/ProjetSport.sln 
       
-    - name: Check Keystore File
-      run: ls -la ProjetSport/
-
     - name: Build
       run: dotnet build --configuration Release --no-restore ProjetSport/ProjetSport.sln
       env:
@@ -50,19 +38,12 @@ jobs:
         KEYSTORE_ALIAS: ${{ secrets.KEYSTORE_ALIAS }}
         KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
         
-
+        
     - name: Publish
       run: dotnet publish ProjetSport/ProjetSport/ProjetSport.csproj --framework net7.0-android --configuration Release --output ./publish/android
       
     - name: Install Firebase CLI
       run: npm install -g firebase-tools
-
-
-
-    - name: Update firebase.json
-      run: |
-        echo '{ "hosting": { "public": "./publish/android", "ignore": ["firebase.json", "**/.*", "**/node_modules/**"] } }' > firebase.json
-
 
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
